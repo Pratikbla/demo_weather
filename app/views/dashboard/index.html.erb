@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="card">
+		<div class="card-header">
+			<h6 class="text-center text-uppercase font-weight-bold">Analysis</h6>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="daily-chart">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="card">
+		<div class="card-header">
+			<h6 class="text-center text-uppercase font-weight-bold">Report</h6>
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-sm-12">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Country</th>
+								<th>State</th>
+								<th>Temperature(K)</th>
+								<th>Date</th>
+							</tr>
+						</thead>
+						<% if @weathers.present? %>
+							<% @weathers.each do |weather| %>
+								<tbody>
+									<tr>
+										<td><%= weather.try(:country) %></td>
+										<td><%= weather.try(:state) %></td>
+										<td><%= weather.try(:temperature) %></td>
+										<td><%= weather.try(:date) %></td>
+									</tr>
+								</tbody>
+							<% end %>
+						<% end %>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
